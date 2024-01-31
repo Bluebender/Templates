@@ -24,3 +24,4 @@ public List<Contact> getAll() {
 	return jdbcTemplate.query("SELECT id_contact, nom, prenom FROM CONTACT", rowMapper);
 }
 RowMapper<Contact> rowMapper = (rs,i)-> new Contact(rs.getInt("id_contact"),rs.getString("nom"),rs.getString("prenom"));
+```

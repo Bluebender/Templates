@@ -1,4 +1,4 @@
-# Templates
+# Templates Java
 ## config
 
 ### Configuration de la base de donnée H2

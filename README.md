@@ -15,7 +15,7 @@ public void insert(Contact contact) {
 		contact.setIdContact(keyHolder.getKey().intValue());
 	}
 }
-
+```
 ## Methode de lecture de plusieurs objets dans une base de donnée
 
 ```java

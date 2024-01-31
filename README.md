@@ -3,6 +3,9 @@
 ## Methode de création d'un objet dans une base de donnée
 
 ```java
+@Autowired
+private NamedParameterJdbcTemplate jdbcTemplate;
+
 @Override
 public void insert(Contact contact) {
 	KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -19,6 +22,9 @@ public void insert(Contact contact) {
 ## Methode de lecture de plusieurs objets dans une base de donnée
 
 ```java
+@Autowired
+private NamedParameterJdbcTemplate jdbcTemplate;
+
 @Override
 public List<Contact> getAll() {
 	return jdbcTemplate.query("SELECT id_contact, nom, prenom FROM CONTACT", rowMapper);

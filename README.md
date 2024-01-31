@@ -1,6 +1,7 @@
 # Templates
 
 ## Methode de création d'un objet dans une base de donnée
+
 ```java
 @Override
 public void insert(Contact contact) {
@@ -16,6 +17,7 @@ public void insert(Contact contact) {
 }
 
 ## Methode de lecture de plusieurs objets dans une base de donnée
+
 ```java
 @Override
 public List<Contact> getAll() {

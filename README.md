@@ -1,6 +1,6 @@
 # Templates
 ## Methode de création d'un objet dans une base de donnée
-`java
+```java
 @Override
 	public void insert(Contact contact) {
 		KeyHolder keyHolder = new GeneratedKeyHolder();

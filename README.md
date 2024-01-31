@@ -19,6 +19,17 @@ public class Conf {
 }
 ```
 
+### Configuration de la base de donnée H2
+
+Fichier create.sql dans ressources
+```java
+CREATE TABLE CONTACT (
+    id_contact INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50)
+);
+```
+
 ## dal
 
 ### Methode de création d'un objet dans une base de donnée

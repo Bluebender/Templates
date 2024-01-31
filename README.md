@@ -19,7 +19,7 @@ public class Conf {
 }
 ```
 
-### Configuration de la base de donnée H2
+### Création de la base de donnée H2
 
 Fichier create.sql dans ressources
 ```java

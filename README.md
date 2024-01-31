@@ -3,6 +3,7 @@
 
 ### Configuration de la base de donnée H2
 
+Fichier conf à la racine du projet
 ```java
 @Configuration
 public class Conf {

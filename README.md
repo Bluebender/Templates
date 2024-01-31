@@ -13,7 +13,9 @@ public void insert(Contact contact) {
 	MapSqlParameterSource namedParameters = new MapSqlParameterSource();
 	namedParameters.addValue("nom", contact.getNom());
 	namedParameters.addValue("prenom", contact.getPrenom());
+
 	jdbcTemplate.update("INSERT INTO CONTACT (nom, prenom) VALUES (:nom,:prenom)", namedParameters, keyHolder);
+
 	if (keyHolder != null && keyHolder.getKey() != null) {
 		contact.setIdContact(keyHolder.getKey().intValue());
 	}

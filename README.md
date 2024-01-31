@@ -1,4 +1,22 @@
 # Templates
+## config
+
+### Configuration de la base de donnée H2
+
+```java
+@Configuration
+public class Conf {
+
+    @Bean
+    DataSource getDataSource() {
+        return new EmbeddedDatabaseBuilder()
+                .setType(EmbeddedDatabaseType.H2)
+                .addScript("create.sql")
+                .build();
+    }
+
+}
+```
 
 ## dal
 

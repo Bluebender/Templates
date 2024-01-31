@@ -46,7 +46,9 @@ public void insert(Contact contact) {
 	namedParameters.addValue("nom", contact.getNom());
 	namedParameters.addValue("prenom", contact.getPrenom());
 
-	jdbcTemplate.update("INSERT INTO CONTACT (nom, prenom) VALUES (:nom,:prenom)", namedParameters, keyHolder);
+	String sql = "INSERT INTO CONTACT (nom, prenom) VALUES (:nom,:prenom)";
+
+	jdbcTemplate.update(sql, namedParameters, keyHolder);
 
 	if (keyHolder != null && keyHolder.getKey() != null) {
 		contact.setIdContact(keyHolder.getKey().intValue());
@@ -59,13 +61,15 @@ public void insert(Contact contact) {
 @Autowired
 private NamedParameterJdbcTemplate jdbcTemplate;
 
-@Override
-public List<Contact> getAll() {
-	return jdbcTemplate.query("SELECT id_contact, nom, prenom FROM CONTACT", rowMapper);
-}
 RowMapper<Contact> rowMapper = (rs,i)-> new Contact(
 	rs.getInt("id_contact"),
 	rs.getString("nom"),
 	rs.getString("prenom")
 );
+
+@Override
+public List<Contact> getAll() {
+	String sql = "SELECT id_contact, nom, prenom FROM CONTACT";
+	return jdbcTemplate.query(sql, rowMapper);
+}
 ```

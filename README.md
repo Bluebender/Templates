@@ -73,3 +73,31 @@ public List<Contact> getAll() {
 	return jdbcTemplate.query(sql, rowMapper);
 }
 ```
+
+## Classe RowMapper 
+
+```java
+@Repository
+class AvisRowMapper implements RowMapper<Avis> {
+
+    MembreDAO membreDAO;
+
+    @Autowired
+    public AvisRowMapper(MembreDAO membreDAO) {
+        this.membreDAO = membreDAO;
+    }
+
+    @Override
+    public Avis mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Avis avis = new Avis();
+        avis.setId(Long.parseLong(rs.getString("id")));
+        avis.setNote(Integer.parseInt(rs.getString("note")));
+        avis.setCommentaire(rs.getString("commentaire"));
+
+        Membre membre = membreDAO.read(Long.valueOf(rs.getString("id_membre")));
+        avis.setMembre(membre);
+
+        return avis;
+    }
+}
+```
